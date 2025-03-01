@@ -18,6 +18,18 @@ const router = createRouter({
       name: 'projects',
       component: () => import('@/views/ProjectsView.vue'), // dynamic  import for lazy loading, causing the page to load faster, bundle size is smaller
     },
+    {
+      // dynamic route  can be used to navigate to a specific project
+      path: '/projects/:id',
+      name: 'single-project',
+      component: () => import('@/views/SingleProjectView.vue'),
+    },
+    // 404 page
+    {
+      path: '/:catchAll(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue'),
+    },
   ],
 })
 
